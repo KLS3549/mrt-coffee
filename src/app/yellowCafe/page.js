@@ -8,114 +8,142 @@ import { useRouter } from "next/navigation";
 
 const cafeList = [
   {
-    longitude: 121.5703915604077,
-    latitude: 25.02749350333757,
-    name: "象山日光咖啡 Sunshine Cafe",
-    station: "象山站",
-    rating: 4.6,
+    longitude: 121.51538247959753,
+    latitude: 25.00438227656673,
+    name: "蜂巢咖啡自家烘焙館",
+    station: "永安市場站",
+    rating: 4.3,
   },
   {
-    longitude: 121.55603157273467,
-    latitude: 25.02859970174685,
-    name: "光孚咖啡",
-    station: "台北101/世貿站",
+    longitude: 121.52893745446923,
+    latitude: 25.030892371198068,
+    name: "Irga 就此耶加烘豆坊",
+    station: "東門站",
+    rating: 4.9,
+  },
+  {
+    longitude: 121.52195703470053,
+    latitude: 25.063837376182956,
+    name: "八豆咖啡 BarDoor Coffee",
+    station: "民權西路站",
     rating: 4.5,
   },
   {
-    longitude: 121.56171375369756,
-    latitude: 25.028755819528218,
-    name: "呷滴 Jia Dee",
-    station: "中山站",
-    rating: 4.2,
+    longitude: 121.52319296744078,
+    latitude: 25.021535519899736,
+    name: "UNI CAFE",
+    station: "古亭站",
+    rating: 4.8,
   },
   {
-    longitude: 121.54483579626317,
-    latitude: 25.032084655376718,
-    name: "這間咖啡",
-    station: "大安站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.53835931521866,
-    latitude: 25.03104241881393,
-    name: "2J CAFE",
-    station: "大安森林公園站",
-    rating: 4.3,
-  },
-  {
-    longitude: 121.52996653216603,
-    latitude: 25.030838439282387,
-    name: "羊毛與花．永康",
-    station: "東門站",
-    rating: 4.4,
-  },
-  {
-    longitude: 121.51660746666033,
-    latitude: 25.03191223611397,
-    name: "白胖咖啡館",
-    station: "中正紀念堂站",
-    rating: 4.9,
-  },
-  {
-    longitude: 121.52196828438471,
-    latitude: 25.04889798946141,
-    name: "慢動作咖啡館",
-    station: "台北車站",
-    rating: 4.7,
-  },
-  {
-    longitude: 121.52417518068374,
-    latitude: 25.0538358845923,
-    name: "大鶴黑寶",
-    station: "中山站",
-    rating: 4.3,
-  },
-  {
-    longitude: 121.52025535006551,
-    latitude: 25.055511579166264,
-    name: "北風社",
-    station: "中山站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.51993290368867,
-    latitude: 25.058857842611406,
-    name: "好啊咖啡",
-    station: "雙連站",
-    rating: 4.9,
-  },
-  {
-    longitude: 121.51880699770419,
-    latitude: 25.064177227124727,
-    name: "別所 shelter",
-    station: "民權西路站",
+    longitude: 121.48488987960394,
+    latitude: 25.087705811761676,
+    name: "不如咖啡BLUBLU Kafe",
+    station: "徐匯中學站",
     rating: 4.1,
   },
   {
-    longitude: 121.51602987871614,
-    latitude: 25.1145960325704,
-    name: "老窩咖啡",
-    station: "石牌站",
-    rating: 4.2,
+    longitude: 121.50304984447662,
+    latitude: 24.996114946275984,
+    name: "豆BAR",
+    station: "景安站",
+    rating: 4.7,
   },
   {
-    longitude: 121.46673964741477,
-    latitude: 25.124401296487274,
-    name: "爐鍋咖啡 Luguo Cafe",
-    station: "關渡站",
-    rating: 4.6,
+    longitude: 121.52513849680022,
+    latitude: 25.06482057733461,
+    name: "果實咖啡堂",
+    station: "景安站",
+    rating: 4.0,
   },
   {
-    longitude: 121.49839159788012,
-    latitude: 25.13327612592044,
-    name: "N Café",
-    station: "北投站",
-    rating: 4.2,
+    longitude: 121.53212966610917,
+    latitude: 25.0413190665559,
+    name: "Coffee Sind",
+    station: "忠孝復興站",
+    rating: 4.8,
+  },
+  {
+    longitude: 121.52609719309284,
+    latitude:25.04059264750734,
+    name: "漸漸咖啡店",
+    station: "善導寺站",
+    rating: 4.7,
+  },
+  {
+    longitude: 121.53475879124123,
+    latitude:25.05863599559388,
+    name: "CAFE RACO",
+    station: "行天宮站",
+    rating: 4.5,
+  },
+  {
+    longitude: 121.43301889679711,
+    latitude: 25.032281562660813,
+    name: "工寓咖啡",
+    station: "輔大站",
+    rating: 4.3,
+  },
+  {
+    longitude: 121.50940855447037,
+    latitude: 25.06029655496208,
+    name: "COFE 喫茶咖啡",
+    station: "大橋頭站",
+    rating:4.5,
+  },
+  {
+    longitude: 121.47516953727484,
+    latitude: 25.08433559983829,
+    name: "魚缸珈琲",
+    station: "三民高中站",
+    rating:4.4,
+  },
+  {
+    longitude: 121.50826103727327,
+    latitude: 25.045866597821444,
+    name: "FabCafe",
+    station: "忠孝新生站",
+    rating:4.9,
+  },
+  {
+    longitude: 121.51334923912415,
+    latitude: 25.01021444854709,
+    name: "黑雨 kuro Ame",
+    station: "頂溪站",
+    rating:4.9,
+  },
+  {
+    longitude: 121.48507898145473,
+    latitude: 25.078839725524755,
+    name: "驚嘆號咖啡",
+    station: "三和國中站",
+    rating:4.3,
+  },
+  {
+    longitude: 121.50951259679532,
+    latitude: 24.989379593908755,
+    name: "ERC Cafe",
+    station: "南勢角站",
+    rating:4.4,
+  },
+  {
+    longitude: 121.53911295152976,
+    latitude: 25.053043083127683,
+    name: "貝克宅 Roasting House",
+    station: "松江南京站",
+    rating:4.4,
+  },
+  {
+    longitude: 121.42363929494448,
+    latitude: 25.027207665359388,
+    name: "甜心屋咖啡",
+    station: "丹鳳站",
+    rating:4.5,
   }
   
 ];
 
-export default function redCafe() {
+export default function yellowCafe() {
 
   const router = useRouter();
   const handleEnded = () => {
@@ -140,15 +168,15 @@ export default function redCafe() {
     <>
       <div className="relative flex flex-col items-center gap-10 min-h-screen overflow-hidden">
 
-        <button
-          className="absolute top-6 left-4 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
-          onClick={() => {
-            // 這裡可以放你要觸發的功能，例如 reset 地圖位置
-            handleEnded();
-          }}
-        >
-          HOME
-        </button>
+      <button
+        className="absolute top-6 left-4 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+        onClick={() => {
+          // 這裡可以放你要觸發的功能，例如 reset 地圖位置
+          handleEnded();
+        }}
+      >
+        HOME
+      </button>
 
         <Map
           mapboxAccessToken="pk.eyJ1Ijoiamllbmh1YWdvbyIsImEiOiJjbTdsNjY0MjMwNDl2MmtzZHloYXY0czNkIn0.mlD3UGH3wR3ZMJmCuHDpSQ"

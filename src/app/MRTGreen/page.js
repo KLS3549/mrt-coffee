@@ -8,7 +8,7 @@ export default function MRT() {
   const router = useRouter();
   const handleEnded = () => {
     // 這裡放你要做的事，例如切換畫面、顯示訊息等
-    router.push("/redCafe");
+    router.push("/greenCafe");
   };
 
   return (
