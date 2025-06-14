@@ -14,8 +14,9 @@ export default function MRT() {
           正在搭乘板南線...
         </div>
 
-        <div className="w-[80%] h-4 bg-[#0372C1]/30 rounded-full overflow-hidden z-20">
-          <div className="h-full bg-[#0372C1]/80 animate-grow w-0"></div>
+        {/* 進度條容器 */}
+        <div className="w-[80%] h-4 bg-[#0372C1]/60 overflow-hidden z-20">
+          <div className="progress-bar h-full bg-[#0372C1] w-0"></div>
         </div>
 
         <Image
@@ -25,8 +26,25 @@ export default function MRT() {
           className="absolute bottom-0 left-0 z-0"
           alt="mrt"
         />
-
+        
       </div>
+
+      {/* 🔽 內嵌動畫樣式 */}
+      <style jsx>{`
+        .progress-bar {
+          animation: fillBar 20s linear forwards;
+        }
+
+        @keyframes fillBar {
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
+        }
+      `}</style>
+
     </>
   );
 }
