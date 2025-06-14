@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image";
 
 export default function MRT() {
@@ -11,7 +13,10 @@ export default function MRT() {
           正在搭乘文湖線...
         </div>
 
-        <div className="px-90 py-2 bg-[#BF8F2D]/60"></div>
+        {/* 進度條容器 */}
+        <div className="w-[80%] h-4 bg-[#BF8F2D]/60 overflow-hidden z-20">
+          <div className="progress-bar h-full bg-[#BF8F2D] w-0"></div>
+        </div>
 
         <Image
           src="/mrt.png"
@@ -22,6 +27,23 @@ export default function MRT() {
         />
 
       </div>
+
+      {/* 🔽 內嵌動畫樣式 */}
+      <style jsx>{`
+        .progress-bar {
+          animation: fillBar 20s linear forwards;
+        }
+
+        @keyframes fillBar {
+          from {
+            width: 0%;
+          }
+          to {
+            width: 100%;
+          }
+        }
+      `}</style>
+      
     </>
   );
 }
