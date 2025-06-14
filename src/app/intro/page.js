@@ -4,9 +4,16 @@ import Link from "next/link";
 export default function INTRO() {
   return (
     <>
-      <div className="flex flex-col items-center pt-8 pb-8 gap-10">
+      <div className="flex flex-col items-center pt-20 pb-8 gap-10">
 
-        <div className="absolute top-0 left-0 w-full py-6 bg-[#B8AA95]/80"></div>
+        <div className="absolute top-0 left-0 w-full bg-[#B8AA95]/80">
+          <Image
+            src="/logo.png"
+            width={320}
+            height={320}
+            alt="mrt"
+          />
+        </div>
 
         <div className="mt-16 text-3xl font-bold">
           今天你想搭去哪裡呢?

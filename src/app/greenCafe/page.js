@@ -58,7 +58,7 @@ const cafeList = [
   
 ];
 
-export default function redCafe() {
+export default function greenCafe() {
 
   const mapRef = useRef(null); // ✅ 使用 ref 存地圖
 

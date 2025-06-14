@@ -1,13 +1,28 @@
 "use client"
 
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function MRT() {
+
+  const router = useRouter();
+  const handleEnded = () => {
+    // 這裡放你要做的事，例如切換畫面、顯示訊息等
+    router.push("/redCafe");
+  };
+
   return (
     <>
-      <div className="relative flex flex-col items-center pt-8 pb-8 gap-10 min-h-screen">
+      <div className="relative flex flex-col items-center pt-20 pb-8 gap-10 min-h-screen">
 
-        <div className="absolute top-0 left-0 w-full py-6 bg-[#B8AA95]/80"></div>
+        <div className="absolute top-0 left-0 w-full bg-[#B8AA95]/80">
+          <Image
+            src="/logo.png"
+            width={320}
+            height={320}
+            alt="mrt"
+          />
+        </div>
 
         <div className="mt-16 text-3xl font-bold">
           正在搭乘松山新店線...
@@ -28,10 +43,14 @@ export default function MRT() {
 
       </div>
 
+      <audio autoPlay controls onEnded={handleEnded} className="absolute right-0">
+        <source src="/audio/green.mp3" type="audio/mpeg" />
+      </audio>
+
       {/* 🔽 內嵌動畫樣式 */}
       <style jsx>{`
         .progress-bar {
-          animation: fillBar 20s linear forwards;
+          animation: fillBar 29s linear forwards;
         }
 
         @keyframes fillBar {
@@ -43,7 +62,7 @@ export default function MRT() {
           }
         }
       `}</style>
-      
+
     </>
   );
 }
