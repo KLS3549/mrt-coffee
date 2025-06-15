@@ -6,6 +6,10 @@ import Map, { Marker, useMap } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useRouter } from "next/navigation";
 
+import Link from "next/link";
+import FavoriteButton from "../auth/favButton";
+import { useAuth } from "../auth/AuthContext";
+
 const cafeList = [
   {
     longitude: 121.50951259679532,

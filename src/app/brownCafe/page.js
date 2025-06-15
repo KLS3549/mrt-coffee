@@ -7,6 +7,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+import FavoriteButton from "../auth/favButton";
+import { useAuth } from "../auth/AuthContext";
+import UserNav from "../auth/UserNav";
+
 const cafeList = [
   {
     longitude: 121.57061738716047,

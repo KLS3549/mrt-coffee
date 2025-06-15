@@ -7,6 +7,10 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
+import FavoriteButton from "../auth/favButton";
+import { useAuth } from "../auth/AuthContext";
+import UserNav from "../auth/UserNav";
+
 const cafeList = [
   {
     longitude:121.4502662507627,
@@ -134,6 +138,7 @@ const cafeList = [
 export default function blueCafe() {
 
   const [selectedCafe, setSelectedCafe] = useState(null);
+  const { user } = useAuth();//定義使用者
 
   const router = useRouter();
   const handleEnded = () => {
@@ -169,7 +174,7 @@ export default function blueCafe() {
         </button>
 
         <button
-          className="absolute bottom-10 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          className="absolute bottom-10 right-3 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
           onClick={() => {
             if (mapRef.current) {
               mapRef.current.flyTo({
@@ -223,6 +228,12 @@ export default function blueCafe() {
           <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
             <div className="flex justify-between items-center w-full mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
+         
+              {user && (
+                <div className="absolute top-2 right-2">
+                  <FavoriteButton cafe={selectedCafe} />
+                </div>
+              )}
               <button
                 className="text-gray-500 hover:text-black text-xl"
                 onClick={() => setSelectedCafe(null)}
@@ -242,7 +253,8 @@ export default function blueCafe() {
           </div>
         )}
 
-        <div className="absolute top-20 right-10 w-[500px] max-w-md h-[500px] overflow-y-auto 
+
+        <div className="absolute top-20 right-3 w-[400px] max-w-md h-[450px] overflow-y-auto 
         overflow-x-hidden space-y-4 z-10 ">
           {cafeList.map((cafe, index) => (
           <div
@@ -269,6 +281,10 @@ export default function blueCafe() {
           </div>
           ))}
         </div>
+
+        <div className="absolute top-6 right-3">
+        <UserNav/>
+      </div>
 
         <div className="absolute top-20 left-4 w-[150px] max-w-md h-[150px] overflow-y-auto 
         overflow-x-hidden space-y-4 z-10 ">
