@@ -5,6 +5,7 @@ import { useRef, useState } from "react";
 import Map, { Marker, useMap } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 const cafeList = [
   {
@@ -300,6 +301,27 @@ export default function yellowCafe() {
           </div>
           ))}
         </div>
+
+        <div className="absolute top-20 left-4 w-[150px] max-w-md h-[150px] overflow-y-auto 
+        overflow-x-hidden space-y-4 z-10 ">
+          <Link href="/MRTRed" className="bg-[#E6D1B1]/60 rounded-lg shadow p-2 flex flex-row gap-2 transition hover:scale-[1.01]">
+            <div className="w-5 h-5 bg-[#DD0128]/60 rounded-full"></div>
+            淡水信義線
+          </Link>
+          <Link href="/MRTGreen" className="bg-[#E6D1B1]/60 rounded-lg shadow p-2 flex flex-row gap-2 transition hover:scale-[1.01]">
+            <div className="w-5 h-5 bg-[#068559]/60 rounded-full"></div>
+            松山新店線
+          </Link>
+          <Link href="/MRTBlue" className="bg-[#E6D1B1]/60 rounded-lg shadow p-2 flex flex-row gap-2 transition hover:scale-[1.01]">
+            <div className="w-5 h-5 bg-[#0372C1]/60 rounded-full"></div>
+            板南線
+          </Link>
+          <Link href="/MRTBrown" className="bg-[#E6D1B1]/60 rounded-lg shadow p-2 flex flex-row gap-2 transition hover:scale-[1.01]">
+            <div className="w-5 h-5 bg-[#BF8F2D]/60 rounded-full"></div>
+            文湖線
+          </Link>
+        </div>
+
       </div>
 
     </>
