@@ -145,6 +145,8 @@ const cafeList = [
 
 export default function yellowCafe() {
 
+  const [selectedCafe, setSelectedCafe] = useState(null);
+
   const router = useRouter();
   const handleEnded = () => {
     // 這裡放你要做的事，例如切換畫面、顯示訊息等
@@ -181,9 +183,9 @@ export default function yellowCafe() {
         <Map
           mapboxAccessToken="pk.eyJ1Ijoiamllbmh1YWdvbyIsImEiOiJjbTdsNjY0MjMwNDl2MmtzZHloYXY0czNkIn0.mlD3UGH3wR3ZMJmCuHDpSQ"
           initialViewState={{
-            longitude: 121.52817156559162,
-            latitude: 25.043949558152605,
-            zoom: 17
+            longitude: 121.52646648672432,
+            latitude: 25.03862643754477, 
+            zoom: 12
           }}
           id="myMap"
           //加入 marker
@@ -197,23 +199,41 @@ export default function yellowCafe() {
           {
             cafeList.map((shop) => (
               <Marker
+                className="flex flex-col items-center"
                 longitude={shop.longitude}
                 latitude={shop.latitude}
                 key={shop.name}
-                onClick={() => {
-                  if (mapRef.current) {
-                    mapRef.current.flyTo({
-                      center: [shop.longitude, shop.latitude],
-                      zoom: 17,
-                    });
-                  }
+                onClick={(e) => {
+                  e.originalEvent.stopPropagation(); // 避免冒泡
+                  setSelectedCafe(shop);
                 }}
               >
-                <div className='w-10 h-10 bg-blue-200 rounded-full'></div>
+                <div className="font-bold">{shop.name}</div>
+                <div className='w-5 h-5 bg-blue-200 rounded-full'></div>
               </Marker>
             ))
           }
         </Map>
+
+        {selectedCafe && (
+          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1]/60 rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-start mb-2">
+              <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
+              <button
+                className="text-gray-500 hover:text-black text-xl"
+                onClick={() => setSelectedCafe(null)}
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-sm text-gray-700 mb-1">
+              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
+            </p>
+            <p className="text-sm text-amber-600 font-semibold">
+              評價：{selectedCafe.rating} ⭐
+            </p>
+          </div>
+        )}
 
         <div className="absolute top-20 right-10 w-[500px] max-w-md h-[500px] overflow-y-auto 
         overflow-x-hidden space-y-4 z-10 ">
