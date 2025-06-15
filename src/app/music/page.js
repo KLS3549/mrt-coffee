@@ -26,3 +26,12 @@ const pause = () => {
 videoId="25AVgjI1JjU"
 onReady={videoReady}
 ></YouTube>
+
+            {/*
+              <p className="text-sm text-gray-700 mb-1">
+              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
+            </p>
+            <p className="text-sm text-amber-600 font-semibold">
+              評價：{selectedCafe.rating} ⭐
+            </p>
+            */}

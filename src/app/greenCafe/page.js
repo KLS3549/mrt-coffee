@@ -8,56 +8,14 @@ import { useRouter } from "next/navigation";
 
 const cafeList = [
   {
-    longitude: 121.52122793727355,
-    latitude: 25.05342002411044,
-    name: "咖啡瑪榭 中山店",
-    station: "中山站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.53825379309124,
-    latitude: 25.00041573878813,
-    name: "河童家 かっぱや",
-    station: "萬隆站",
-    rating: 4.4,
-  },
-  {
-    longitude:121.53319043541971,
-    latitude: 25.015361038356804,
-    name: "The Misanthrope Society 厭世會社",
-    station: "公館站",
-    rating: 4.6,
-  },
-  {
-    longitude: 121.5051422523094,
-    latitude: 25.045998440469823,
-    name: "妳有咖啡 neo cafe",
-    station: "西門站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.5315987661083,
-    latitude: 25.02040659446185,
-    name: "半路咖啡halfway cafe",
-    station: "台電大樓站",
-    rating: 4.3,
-  },
-  {
-    longitude:121.51066878145399,
-    latitude: 25.056681237315434,
-    name: "小城外 Bar CityNorth",
-    station: "北門站",
+    longitude: 121.5429989354181,
+    latitude: 24.97621641793249,
+    name: "白楊樹 Cafe Björk",
+    station: "七張站",
     rating: 4.5,
   },
   {
-    longitude: 121.55591006425706,
-    latitude: 25.0477423337957,
-    name: "一文咖啡",
-    station: "南京三民站",
-    rating: 4.5,
-  },
-  {
-    longitude:121.54291389494257,
+    longitude: 121.54291389494257,
     latitude: 24.97929235916373,
     name: "Miss May Cafe",
     station: "大坪林站",
@@ -71,25 +29,32 @@ const cafeList = [
     rating: 4.3,
   },
   {
-    longitude: 121.58044195076528,
-    latitude: 25.050759989715864,
-    name: "K's New Coffee",
-    station: "松山站",
-    rating: 4.8,
+    longitude: 121.53825379309124,
+    latitude: 25.00041573878813,
+    name: "河童家 かっぱや",
+    station: "萬隆站",
+    rating: 4.4,
   },
   {
-    longitude: 121.50675699494514,
-    latitude: 25.03946224956869,
-    name: "街口6號珈啡",
-    station: "西門站",
-    rating: 4.6,
-  },
-  {
-    longitude:121.53911479123889,
+    longitude: 121.53911479123889,
     latitude: 25.002134276744048,
     name: "JOHN DOE CAFÉ 無名氏咖啡",
     station: "萬隆站",
     rating: 4.6,
+  },
+  {
+    longitude:121.53319043541971,
+    latitude: 25.015361038356804,
+    name: "The Misanthrope Society 厭世會社",
+    station: "公館站",
+    rating: 4.6,
+  },
+  {
+    longitude: 121.5315987661083,
+    latitude: 25.02040659446185,
+    name: "半路咖啡halfway cafe",
+    station: "台電大樓站",
+    rating: 4.3,
   },
   {
     longitude: 121.50410295076512,
@@ -99,11 +64,39 @@ const cafeList = [
     rating: 4.1,
   },
   {
+    longitude: 121.5051422523094,
+    latitude: 25.045998440469823,
+    name: "妳有咖啡 neo cafe",
+    station: "西門站",
+    rating: 4.2,
+  },
+  {
+    longitude: 121.50675699494514,
+    latitude: 25.03946224956869,
+    name: "街口6號珈啡",
+    station: "西門站",
+    rating: 4.6,
+  },
+  {
+    longitude:121.51066878145399,
+    latitude: 25.056681237315434,
+    name: "小城外 Bar CityNorth",
+    station: "北門站",
+    rating: 4.5,
+  },
+  {
     longitude: 121.52121157960147,
     latitude: 25.052900647245384,
     name: "雄獅星空",
     station: "中山站",
     rating: 4.6,
+  },
+  {
+    longitude: 121.52122793727355,
+    latitude: 25.05342002411044,
+    name: "咖啡瑪榭 中山店",
+    station: "中山站",
+    rating: 4.2,
   },
   {
     longitude: 121.5544880846493,
@@ -113,16 +106,25 @@ const cafeList = [
     rating: 4.5,
   },
   {
-    longitude: 121.5429989354181,
-    latitude: 24.97621641793249,
-    name: "白楊樹 Cafe Björk",
-    station: "七張站",
+    longitude: 121.55591006425706,
+    latitude: 25.0477423337957,
+    name: "一文咖啡",
+    station: "南京三民站",
     rating: 4.5,
+  },
+  {
+    longitude: 121.58044195076528,
+    latitude: 25.050759989715864,
+    name: "K's New Coffee",
+    station: "松山站",
+    rating: 4.8,
   }
   
 ];
 
 export default function greenCafe() {
+
+  const [selectedCafe, setSelectedCafe] = useState(null);
 
   const router = useRouter();
   const handleEnded = () => {
@@ -157,12 +159,28 @@ export default function greenCafe() {
           HOME
         </button>
 
+        <button
+          className="absolute top-6 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          onClick={() => {
+            if (mapRef.current) {
+              mapRef.current.flyTo({
+                center: [121.5759703090182, 25.018381765803603],
+                zoom: 12,
+              });
+            } else {
+              console.log("map is undefined");
+            }
+          }}
+        >
+          CENTER
+        </button>
+
         <Map
           mapboxAccessToken="pk.eyJ1Ijoiamllbmh1YWdvbyIsImEiOiJjbTdsNjY0MjMwNDl2MmtzZHloYXY0czNkIn0.mlD3UGH3wR3ZMJmCuHDpSQ"
           initialViewState={{
-            longitude: 121.52817156559162,
-            latitude: 25.043949558152605,
-            zoom: 17
+            longitude: 121.5759703090182,
+            latitude: 25.018381765803603,
+            zoom: 12
           }}
           id="myMap"
           //加入 marker
@@ -176,23 +194,41 @@ export default function greenCafe() {
           {
             cafeList.map((shop) => (
               <Marker
+                className="flex flex-col items-center"
                 longitude={shop.longitude}
                 latitude={shop.latitude}
                 key={shop.name}
-                onClick={() => {
-                  if (mapRef.current) {
-                    mapRef.current.flyTo({
-                      center: [shop.longitude, shop.latitude],
-                      zoom: 17,
-                    });
-                  }
+                onClick={(e) => {
+                  e.originalEvent.stopPropagation(); // 避免冒泡
+                  setSelectedCafe(shop);
                 }}
               >
-                <div className='w-10 h-10 bg-blue-200 rounded-full'></div>
+                <div className="font-bold">{shop.name}</div>
+                <div className='w-5 h-5 bg-blue-200 rounded-full'></div>
               </Marker>
             ))
           }
         </Map>
+
+        {selectedCafe && (
+          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1]/60 rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-start mb-2">
+              <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
+              <button
+                className="text-gray-500 hover:text-black text-xl"
+                onClick={() => setSelectedCafe(null)}
+              >
+                ×
+              </button>
+            </div>
+            <p className="text-sm text-gray-700 mb-1">
+              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
+            </p>
+            <p className="text-sm text-amber-600 font-semibold">
+              評價：{selectedCafe.rating} ⭐
+            </p>
+          </div>
+        )}
 
         <div className="absolute top-20 right-10 w-[500px] max-w-md h-[500px] overflow-y-auto 
         overflow-x-hidden space-y-4 z-10 ">

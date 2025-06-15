@@ -50,7 +50,7 @@ export default function MRT() {
       {/* 🔽 內嵌動畫樣式 */}
       <style jsx>{`
         .progress-bar {
-          animation: fillBar 29s linear forwards;
+          animation: fillBar 11s linear forwards;
         }
 
         @keyframes fillBar {

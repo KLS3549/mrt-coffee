@@ -8,7 +8,7 @@ export default function MRT() {
   const router = useRouter();
   const handleEnded = () => {
     // 這裡放你要做的事，例如切換畫面、顯示訊息等
-    router.push("/redCafe");
+    router.push("/brownCafe");
   };
 
   return (
@@ -50,7 +50,7 @@ export default function MRT() {
       {/* 🔽 內嵌動畫樣式 */}
       <style jsx>{`
         .progress-bar {
-          animation: fillBar 25s linear forwards;
+          animation: fillBar 11s linear forwards;
         }
 
         @keyframes fillBar {
