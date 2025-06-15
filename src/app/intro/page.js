@@ -31,8 +31,12 @@ export default function INTRO() {
           {line.name}
           <Link
             href={line.href}
-            className={`text-lg px-100 py-2 bg-[${line.color}]/60 hover:bg-[${line.color}]`}
+            style={{
+              backgroundColor: line.color,
+            }}
+            className="text-lg px-100 py-2 opacity-60 hover:opacity-100 transition"
           />
+
         </div>
       ))}
     </div>
