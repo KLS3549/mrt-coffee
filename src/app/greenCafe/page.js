@@ -13,6 +13,7 @@ const cafeList = [
     name: "白楊樹 Cafe Björk",
     station: "七張站",
     rating: 4.5,
+    image: "/G/G1.jpg"
   },
   {
     longitude: 121.54291389494257,
@@ -20,6 +21,7 @@ const cafeList = [
     name: "Miss May Cafe",
     station: "大坪林站",
     rating: 4.8,
+    image: "/G/G2.jpg"
   },
   {
     longitude: 121.54132642192685,
@@ -27,6 +29,7 @@ const cafeList = [
     name: "天島咖啡TenshimaCafe",
     station: "景美站",
     rating: 4.3,
+    image: "/G/G3.jpg"
   },
   {
     longitude: 121.53825379309124,
@@ -34,6 +37,7 @@ const cafeList = [
     name: "河童家 かっぱや",
     station: "萬隆站",
     rating: 4.4,
+    image: "/G/G4.jpg"
   },
   {
     longitude: 121.53911479123889,
@@ -41,6 +45,7 @@ const cafeList = [
     name: "JOHN DOE CAFÉ 無名氏咖啡",
     station: "萬隆站",
     rating: 4.6,
+    image: "/G/G5.jpg"
   },
   {
     longitude:121.53319043541971,
@@ -48,6 +53,7 @@ const cafeList = [
     name: "The Misanthrope Society 厭世會社",
     station: "公館站",
     rating: 4.6,
+    image: "/G/G6.jpg"
   },
   {
     longitude: 121.5315987661083,
@@ -55,6 +61,7 @@ const cafeList = [
     name: "半路咖啡halfway cafe",
     station: "台電大樓站",
     rating: 4.3,
+    image: "/G/G7.jpg"
   },
   {
     longitude: 121.50410295076512,
@@ -62,6 +69,7 @@ const cafeList = [
     name: "暗角咖啡",
     station: "古亭站",
     rating: 4.1,
+    image: "/G/G8.jpg"
   },
   {
     longitude: 121.5051422523094,
@@ -69,6 +77,7 @@ const cafeList = [
     name: "妳有咖啡 neo cafe",
     station: "西門站",
     rating: 4.2,
+    image: "/G/G9.jpg"
   },
   {
     longitude: 121.50675699494514,
@@ -76,6 +85,7 @@ const cafeList = [
     name: "街口6號珈啡",
     station: "西門站",
     rating: 4.6,
+    image: "/G/G10.jpg"
   },
   {
     longitude:121.51066878145399,
@@ -83,6 +93,7 @@ const cafeList = [
     name: "小城外 Bar CityNorth",
     station: "北門站",
     rating: 4.5,
+    image: "/G/G11.jpg"
   },
   {
     longitude: 121.52121157960147,
@@ -90,6 +101,7 @@ const cafeList = [
     name: "雄獅星空",
     station: "中山站",
     rating: 4.6,
+    image: "/G/G12.jpg"
   },
   {
     longitude: 121.52122793727355,
@@ -97,6 +109,7 @@ const cafeList = [
     name: "咖啡瑪榭 中山店",
     station: "中山站",
     rating: 4.2,
+    image: "/G/G13.jpg"
   },
   {
     longitude: 121.5544880846493,
@@ -104,6 +117,7 @@ const cafeList = [
     name: "Remember Me_記得我．café",
     station: "台北小巨蛋站",
     rating: 4.5,
+    image: "/G/G14.jpg"
   },
   {
     longitude: 121.55591006425706,
@@ -111,6 +125,7 @@ const cafeList = [
     name: "一文咖啡",
     station: "南京三民站",
     rating: 4.5,
+    image: "/G/G15.jpg"
   },
   {
     longitude: 121.58044195076528,
@@ -118,6 +133,7 @@ const cafeList = [
     name: "K's New Coffee",
     station: "松山站",
     rating: 4.8,
+    image: "/G/G16.jpg"
   }
   
 ];
@@ -211,8 +227,8 @@ export default function greenCafe() {
         </Map>
 
         {selectedCafe && (
-          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1]/60 rounded-lg shadow-lg w-[300px] p-4">
-            <div className="flex justify-between items-start mb-2">
+          <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-center w-full mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
               <button
                 className="text-gray-500 hover:text-black text-xl"
@@ -221,12 +237,15 @@ export default function greenCafe() {
                 ×
               </button>
             </div>
-            <p className="text-sm text-gray-700 mb-1">
-              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
-            </p>
-            <p className="text-sm text-amber-600 font-semibold">
-              評價：{selectedCafe.rating} ⭐
-            </p>
+            {selectedCafe.image && (
+              <Image
+                src={selectedCafe.image}
+                width={260}
+                height={160}
+                className="rounded-lg mb-2"
+                alt={`${selectedCafe.name} 圖片`}
+              />
+            )}
           </div>
         )}
 
@@ -242,6 +261,7 @@ export default function greenCafe() {
                   zoom: 17,
                 });
               }
+              setSelectedCafe(cafe);
             }}
             className="bg-[#E6D1B1]/60 rounded-lg shadow p-4 flex flex-col gap-2 transition hover:scale-[1.01]"
           >
