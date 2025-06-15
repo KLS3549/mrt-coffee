@@ -8,97 +8,6 @@ import { useRouter } from "next/navigation";
 
 const cafeList = [
   {
-    longitude: 121.5703915604077,
-    latitude: 25.02749350333757,
-    name: "象山日光咖啡 Sunshine Cafe",
-    station: "象山站",
-    rating: 4.6,
-  },
-  {
-    longitude: 121.55603157273467,
-    latitude: 25.02859970174685,
-    name: "光孚咖啡",
-    station: "台北101/世貿站",
-    rating: 4.5,
-  },
-  {
-    longitude: 121.56171375369756,
-    latitude: 25.028755819528218,
-    name: "呷滴 Jia Dee",
-    station: "中山站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.54483579626317,
-    latitude: 25.032084655376718,
-    name: "這間咖啡",
-    station: "大安站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.53835931521866,
-    latitude: 25.03104241881393,
-    name: "2J CAFE",
-    station: "大安森林公園站",
-    rating: 4.3,
-  },
-  {
-    longitude: 121.52996653216603,
-    latitude: 25.030838439282387,
-    name: "羊毛與花．永康",
-    station: "東門站",
-    rating: 4.4,
-  },
-  {
-    longitude: 121.51660746666033,
-    latitude: 25.03191223611397,
-    name: "白胖咖啡館",
-    station: "中正紀念堂站",
-    rating: 4.9,
-  },
-  {
-    longitude: 121.52196828438471,
-    latitude: 25.04889798946141,
-    name: "慢動作咖啡館",
-    station: "台北車站",
-    rating: 4.7,
-  },
-  {
-    longitude: 121.52417518068374,
-    latitude: 25.0538358845923,
-    name: "大鶴黑寶",
-    station: "中山站",
-    rating: 4.3,
-  },
-  {
-    longitude: 121.52025535006551,
-    latitude: 25.055511579166264,
-    name: "北風社",
-    station: "中山站",
-    rating: 4.2,
-  },
-  {
-    longitude: 121.51993290368867,
-    latitude: 25.058857842611406,
-    name: "好啊咖啡",
-    station: "雙連站",
-    rating: 4.9,
-  },
-  {
-    longitude: 121.51880699770419,
-    latitude: 25.064177227124727,
-    name: "別所 shelter",
-    station: "民權西路站",
-    rating: 4.1,
-  },
-  {
-    longitude: 121.51602987871614,
-    latitude: 25.1145960325704,
-    name: "老窩咖啡",
-    station: "石牌站",
-    rating: 4.2,
-  },
-  {
     longitude: 121.46673964741477,
     latitude: 25.124401296487274,
     name: "爐鍋咖啡 Luguo Cafe",
@@ -111,6 +20,97 @@ const cafeList = [
     name: "N Café",
     station: "北投站",
     rating: 4.2,
+  },
+  {
+    longitude: 121.51602987871614,
+    latitude: 25.1145960325704,
+    name: "老窩咖啡",
+    station: "石牌站",
+    rating: 4.2,
+  },
+  {
+    longitude: 121.51880699770419,
+    latitude: 25.064177227124727,
+    name: "別所 shelter",
+    station: "民權西路站",
+    rating: 4.1,
+  },
+  {
+    longitude: 121.51993290368867,
+    latitude: 25.058857842611406,
+    name: "好啊咖啡",
+    station: "雙連站",
+    rating: 4.9,
+  },
+  {
+    longitude: 121.52025535006551,
+    latitude: 25.055511579166264,
+    name: "北風社",
+    station: "中山站",
+    rating: 4.2,
+  },
+  {
+    longitude: 121.52417518068374,
+    latitude: 25.0538358845923,
+    name: "大鶴黑寶",
+    station: "中山站",
+    rating: 4.3,
+  },
+  {
+    longitude: 121.52196828438471,
+    latitude: 25.04889798946141,
+    name: "慢動作咖啡館",
+    station: "台北車站",
+    rating: 4.7,
+  },
+  {
+    longitude: 121.51660746666033,
+    latitude: 25.03191223611397,
+    name: "白胖咖啡館",
+    station: "中正紀念堂站",
+    rating: 4.9,
+  },
+  {
+    longitude: 121.52996653216603,
+    latitude: 25.030838439282387,
+    name: "羊毛與花．永康",
+    station: "東門站",
+    rating: 4.4,
+  },
+  {
+    longitude: 121.53835931521866,
+    latitude: 25.03104241881393,
+    name: "2J CAFE",
+    station: "大安森林公園站",
+    rating: 4.3,
+  },
+  {
+    longitude: 121.54483579626317,
+    latitude: 25.032084655376718,
+    name: "這間咖啡",
+    station: "大安站",
+    rating: 4.2,
+  },
+  {
+    longitude: 121.55603157273467,
+    latitude: 25.02859970174685,
+    name: "光孚咖啡",
+    station: "台北101/世貿站",
+    rating: 4.5,
+  },
+  {
+    longitude: 121.56179422396723,
+    latitude: 25.028896801200048,
+    name: "呷滴 Jia Dee",
+    station: "台北101/世貿站",
+    rating: 4.5,
+  },
+  {
+    longitude: 121.5703915604077,
+    latitude: 25.02749350333757,
+    name: "象山日光咖啡 Sunshine Cafe",
+    station: "象山站",
+    rating: 4.6,
   }
   
 ];
@@ -155,8 +155,8 @@ export default function redCafe() {
         <Map
           mapboxAccessToken="pk.eyJ1Ijoiamllbmh1YWdvbyIsImEiOiJjbTdsNjY0MjMwNDl2MmtzZHloYXY0czNkIn0.mlD3UGH3wR3ZMJmCuHDpSQ"
           initialViewState={{
-            longitude: 121.57744618018324, 
-            latitude: 25.051167245786804,
+            longitude: 121.54717348515983, 
+            latitude: 25.078034404867136,
             zoom: 12
           }}
           id="myMap"
