@@ -13,6 +13,7 @@ const cafeList = [
     name: "ERC Cafe",
     station: "南勢角站",
     rating: 4.4,
+    image: "/Y/Y1.jpg"
   },
   {
     longitude: 121.50304984447662,
@@ -20,6 +21,7 @@ const cafeList = [
     name: "豆BAR",
     station: "景安站",
     rating: 4.7,
+    image: "/Y/Y2.jpg"
   },
   {
     longitude: 121.52513849680022,
@@ -27,6 +29,7 @@ const cafeList = [
     name: "果實咖啡堂",
     station: "景安站",
     rating: 4.0,
+    image: "/Y/Y3.jpg"
   },
   {
     longitude: 121.51334923912415,
@@ -34,6 +37,7 @@ const cafeList = [
     name: "黑雨 kuro Ame",
     station: "頂溪站",
     rating: 4.9,
+    image: "/Y/Y4.jpg"
   },
   {
     longitude: 121.51538247959753,
@@ -41,6 +45,7 @@ const cafeList = [
     name: "蜂巢咖啡自家烘焙館",
     station: "永安市場站",
     rating: 4.3,
+    image: "/Y/Y5.jpg"
   },
   {
     longitude: 121.52319296744078,
@@ -48,6 +53,7 @@ const cafeList = [
     name: "UNI CAFE",
     station: "古亭站",
     rating: 4.8,
+    image: "/Y/Y6.jpg"
   },
   {
     longitude: 121.52893745446923,
@@ -55,6 +61,7 @@ const cafeList = [
     name: "Irga 就此耶加烘豆坊",
     station: "東門站",
     rating: 4.9,
+    image: "/Y/Y7.jpg"
   },
   {
     longitude: 121.5297247629993,
@@ -62,6 +69,7 @@ const cafeList = [
     name: "成真咖啡 台北永康店",
     station: "東門站",
     rating: 4.6,
+    image: "/Y/Y8.jpg"
   },
   {
     longitude: 121.50826103727327,
@@ -69,6 +77,7 @@ const cafeList = [
     name: "FabCafe",
     station: "忠孝新生站",
     rating: 4.9,
+    image: "/Y/Y9.jpg"
   },
   {
     longitude: 121.53151768330763,
@@ -76,6 +85,7 @@ const cafeList = [
     name: "KiOSK",
     station: "忠孝新生站",
     rating: 4.4,
+    image: "/Y/Y10.jpg"
   },
   {
     longitude: 121.53911295152976,
@@ -83,6 +93,7 @@ const cafeList = [
     name: "貝克宅 Roasting House",
     station: "松江南京站",
     rating: 4.4,
+    image: "/Y/Y11.jpg"
   },
   {
     longitude: 121.53475879124123,
@@ -90,6 +101,7 @@ const cafeList = [
     name: "CAFE RACO",
     station: "行天宮站",
     rating: 4.5,
+    image: "/Y/Y12.jpg"
   },
   {
     longitude: 121.52195703470053,
@@ -97,6 +109,7 @@ const cafeList = [
     name: "八豆咖啡 BarDoor Coffee",
     station: "民權西路站",
     rating: 4.5,
+    image: "/Y/Y13.jpg"
   },
   {
     longitude: 121.50940855447037,
@@ -104,6 +117,7 @@ const cafeList = [
     name: "COFE 喫茶咖啡",
     station: "大橋頭站",
     rating: 4.5,
+    image: "/Y/Y14.jpg"
   },
   {
     longitude: 121.48507898145473,
@@ -111,6 +125,7 @@ const cafeList = [
     name: "驚嘆號咖啡",
     station: "三和國中站",
     rating: 4.3,
+    image: "/Y/Y15.jpg"
   },
   {
     longitude: 121.47516953727484,
@@ -118,6 +133,7 @@ const cafeList = [
     name: "魚缸珈琲",
     station: "三民高中站",
     rating: 4.4,
+    image: "/Y/Y16.jpg"
   },
   {
     longitude: 121.48488987960394,
@@ -125,6 +141,7 @@ const cafeList = [
     name: "不如咖啡BLUBLU Kafe",
     station: "徐匯中學站",
     rating: 4.1,
+    image: "/Y/Y17.jpg"
   },
   {
     longitude: 121.43301889679711,
@@ -132,6 +149,7 @@ const cafeList = [
     name: "工寓咖啡",
     station: "輔大站",
     rating: 4.3,
+    image: "/Y/Y18.jpg"
   },
   {
     longitude: 121.42363929494448,
@@ -139,6 +157,7 @@ const cafeList = [
     name: "甜心屋咖啡",
     station: "丹鳳站",
     rating: 4.5,
+    image: "/Y/Y19.jpg"
   }
   
 ];
@@ -232,8 +251,8 @@ export default function yellowCafe() {
         </Map>
 
         {selectedCafe && (
-          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1]/60 rounded-lg shadow-lg w-[300px] p-4">
-            <div className="flex justify-between items-start mb-2">
+          <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-center w-full mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
               <button
                 className="text-gray-500 hover:text-black text-xl"
@@ -242,12 +261,15 @@ export default function yellowCafe() {
                 ×
               </button>
             </div>
-            <p className="text-sm text-gray-700 mb-1">
-              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
-            </p>
-            <p className="text-sm text-amber-600 font-semibold">
-              評價：{selectedCafe.rating} ⭐
-            </p>
+            {selectedCafe.image && (
+              <Image
+                src={selectedCafe.image}
+                width={260}
+                height={160}
+                className="rounded-lg mb-2"
+                alt={`${selectedCafe.name} 圖片`}
+              />
+            )}
           </div>
         )}
 
@@ -263,6 +285,7 @@ export default function yellowCafe() {
                   zoom: 17,
                 });
               }
+              setSelectedCafe(cafe);
             }}
             className="bg-[#E6D1B1]/60 rounded-lg shadow p-4 flex flex-col gap-2 transition hover:scale-[1.01]"
           >
