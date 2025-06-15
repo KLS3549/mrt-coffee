@@ -212,7 +212,7 @@ export default function redCafe() {
                 }}
               >
                 <div className="font-bold">{shop.name}</div>
-                <div className='w-5 h-5 bg-blue-200 rounded-full'></div>
+                <div className='w-5 h-5 bg-[#DD0128]/60 rounded-full'></div>
               </Marker>
             ))
           }
