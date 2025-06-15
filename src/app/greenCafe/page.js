@@ -159,6 +159,22 @@ export default function greenCafe() {
           HOME
         </button>
 
+        <button
+          className="absolute top-6 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          onClick={() => {
+            if (mapRef.current) {
+              mapRef.current.flyTo({
+                center: [121.5759703090182, 25.018381765803603],
+                zoom: 12,
+              });
+            } else {
+              console.log("map is undefined");
+            }
+          }}
+        >
+          CENTER
+        </button>
+
         <Map
           mapboxAccessToken="pk.eyJ1Ijoiamllbmh1YWdvbyIsImEiOiJjbTdsNjY0MjMwNDl2MmtzZHloYXY0czNkIn0.mlD3UGH3wR3ZMJmCuHDpSQ"
           initialViewState={{

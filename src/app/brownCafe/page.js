@@ -145,10 +145,26 @@ export default function brownCafe() {
           HOME
         </button>
 
+        <button
+          className="absolute top-6 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          onClick={() => {
+            if (mapRef.current) {
+              mapRef.current.flyTo({
+                center: [121.60255679602709, 25.039139279223434],
+                zoom: 12,
+              });
+            } else {
+              console.log("map is undefined");
+            }
+          }}
+        >
+          CENTER
+        </button>
+
         <Map
           mapboxAccessToken="pk.eyJ1Ijoiamllbmh1YWdvbyIsImEiOiJjbTdsNjY0MjMwNDl2MmtzZHloYXY0czNkIn0.mlD3UGH3wR3ZMJmCuHDpSQ"
           initialViewState={{
-            longitude:121.60255679602709,
+            longitude: 121.60255679602709,
             latitude: 25.039139279223434, 
             zoom: 12
           }}
