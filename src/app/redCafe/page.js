@@ -133,11 +133,12 @@ const cafeList = [
   
 ];
 
-const { user } = useAuth();//定義使用者
+
 
 export default function redCafe() {
 
   const [selectedCafe, setSelectedCafe] = useState(null);
+  const { user } = useAuth();//定義使用者
 
   const router = useRouter();
   const handleEnded = () => {
@@ -224,38 +225,34 @@ export default function redCafe() {
         </Map>
 
         {selectedCafe && (
-  <div className="relative flex flex-col items-center text-center bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
-    
-    <div className="flex justify-between items-center w-full mb-2">
-      <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
-      <button
-        className="text-gray-500 hover:text-black text-xl"
-        onClick={() => setSelectedCafe(null)}
-      >
-        ×
-      </button>
-    </div>
+          <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-center w-full mb-2">
+              <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
+         
+              {user && (
+                <div className="absolute top-2 right-2">
+                  <FavoriteButton cafe={selectedCafe} />
+                </div>
+              )}
+              <button
+                className="text-gray-500 hover:text-black text-xl"
+                onClick={() => setSelectedCafe(null)}
+              >
+                ×
+              </button>
+            </div>
+            {selectedCafe.image && (
+              <Image
+                src={selectedCafe.image}
+                width={260}
+                height={160}
+                className="rounded-lg mb-2"
+                alt={`${selectedCafe.name} 圖片`}
+              />
+            )}
+          </div>
+        )}
 
-    <div className="relative mb-2">
-      {selectedCafe.image && (
-        <Image
-          src={selectedCafe.image}
-          width={260}
-          height={160}
-          className="rounded-lg"
-          alt={`${selectedCafe.name} 圖片`}
-        />
-      )}
-      
-      {/* ⭐ 收藏按鈕貼圖右上角 */}
-      {user && (
-        <div className="absolute top-2 right-2">
-          <FavoriteButton cafe={selectedCafe} />
-        </div>
-      )}
-    </div>
-  </div>
-)}
 
 
         <div className="absolute top-20 right-10 w-[500px] max-w-md h-[500px] overflow-y-auto 
