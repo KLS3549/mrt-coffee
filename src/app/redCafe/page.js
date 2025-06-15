@@ -13,6 +13,7 @@ const cafeList = [
     name: "爐鍋咖啡 Luguo Cafe",
     station: "關渡站",
     rating: 4.6,
+    image: "/R/R1.jpg"
   },
   {
     longitude: 121.49839159788012,
@@ -20,6 +21,7 @@ const cafeList = [
     name: "N Café",
     station: "北投站",
     rating: 4.2,
+    image: "/R/R2.jpg"
   },
   {
     longitude: 121.51602987871614,
@@ -27,6 +29,7 @@ const cafeList = [
     name: "老窩咖啡",
     station: "石牌站",
     rating: 4.2,
+    image: "/R/R3.jpg"
   },
   {
     longitude: 121.51880699770419,
@@ -34,6 +37,7 @@ const cafeList = [
     name: "別所 shelter",
     station: "民權西路站",
     rating: 4.1,
+    image: "/R/R4.jpg"
   },
   {
     longitude: 121.51993290368867,
@@ -41,6 +45,7 @@ const cafeList = [
     name: "好啊咖啡",
     station: "雙連站",
     rating: 4.9,
+    image: "/R/R5.jpg"
   },
   {
     longitude: 121.52025535006551,
@@ -48,6 +53,7 @@ const cafeList = [
     name: "北風社",
     station: "中山站",
     rating: 4.2,
+    image: "/R/R6.jpg"
   },
   {
     longitude: 121.52417518068374,
@@ -55,6 +61,7 @@ const cafeList = [
     name: "大鶴黑寶",
     station: "中山站",
     rating: 4.3,
+    image: "/R/R7.jpg"
   },
   {
     longitude: 121.52196828438471,
@@ -62,6 +69,7 @@ const cafeList = [
     name: "慢動作咖啡館",
     station: "台北車站",
     rating: 4.7,
+    image: "/R/R8.jpg"
   },
   {
     longitude: 121.51660746666033,
@@ -69,6 +77,7 @@ const cafeList = [
     name: "白胖咖啡館",
     station: "中正紀念堂站",
     rating: 4.9,
+    image: "/R/R9.jpg"
   },
   {
     longitude: 121.52996653216603,
@@ -76,6 +85,7 @@ const cafeList = [
     name: "羊毛與花．永康",
     station: "東門站",
     rating: 4.4,
+    image: "/R/R10.jpg"
   },
   {
     longitude: 121.53835931521866,
@@ -83,6 +93,7 @@ const cafeList = [
     name: "2J CAFE",
     station: "大安森林公園站",
     rating: 4.3,
+    image: "/R/R11.jpg"
   },
   {
     longitude: 121.54483579626317,
@@ -90,6 +101,7 @@ const cafeList = [
     name: "這間咖啡",
     station: "大安站",
     rating: 4.2,
+    image: "/R/R12.jpg"
   },
   {
     longitude: 121.55603157273467,
@@ -97,6 +109,7 @@ const cafeList = [
     name: "光孚咖啡",
     station: "台北101/世貿站",
     rating: 4.5,
+    image: "/R/R13.jpg"
   },
   {
     longitude: 121.56179422396723,
@@ -104,6 +117,7 @@ const cafeList = [
     name: "呷滴 Jia Dee",
     station: "台北101/世貿站",
     rating: 4.5,
+    image: "/R/R14.jpg"
   },
   {
     longitude: 121.5703915604077,
@@ -111,6 +125,7 @@ const cafeList = [
     name: "象山日光咖啡 Sunshine Cafe",
     station: "象山站",
     rating: 4.6,
+    image: "/R/R15.jpg"
   }
   
 ];
@@ -153,7 +168,7 @@ export default function redCafe() {
         </button>
 
         <button
-          className="absolute top-6 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          className="absolute bottom-10 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
           onClick={() => {
             if (mapRef.current) {
               mapRef.current.flyTo({
@@ -204,8 +219,8 @@ export default function redCafe() {
         </Map>
 
         {selectedCafe && (
-          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1]/60 rounded-lg shadow-lg w-[300px] p-4">
-            <div className="flex justify-between items-start mb-2">
+          <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-center w-full mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
               <button
                 className="text-gray-500 hover:text-black text-xl"
@@ -214,12 +229,15 @@ export default function redCafe() {
                 ×
               </button>
             </div>
-            <p className="text-sm text-gray-700 mb-1">
-              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
-            </p>
-            <p className="text-sm text-amber-600 font-semibold">
-              評價：{selectedCafe.rating} ⭐
-            </p>
+            {selectedCafe.image && (
+              <Image
+                src={selectedCafe.image}
+                width={260}
+                height={160}
+                className="rounded-lg mb-2"
+                alt={`${selectedCafe.name} 圖片`}
+              />
+            )}
           </div>
         )}
 
@@ -235,6 +253,7 @@ export default function redCafe() {
                   zoom: 17,
                 });
               }
+              setSelectedCafe(cafe);
             }}
             className="bg-[#E6D1B1]/60 rounded-lg shadow p-4 flex flex-col gap-2 transition hover:scale-[1.01]"
           >

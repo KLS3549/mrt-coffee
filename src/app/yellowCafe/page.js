@@ -181,7 +181,7 @@ export default function yellowCafe() {
       </button>
 
       <button
-          className="absolute top-6 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          className="absolute bottom-10 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
           onClick={() => {
             if (mapRef.current) {
               mapRef.current.flyTo({

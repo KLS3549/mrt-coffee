@@ -117,7 +117,7 @@ const cafeList = [
     name: "暖窩咖啡 內湖店",
     station: "內湖站",
     rating: 4.6,
-    image: "/BR1.jpg"
+    image: "/BR/BR14.jpg"
   }
   
 ];
@@ -160,7 +160,7 @@ export default function brownCafe() {
         </button>
 
         <button
-          className="absolute top-6 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
+          className="absolute bottom-10 right-10 z-20 bg-[#E6D1B1] hover:bg-[#E6D1B1]/60 text-black font-bold py-2 px-4 rounded shadow"
           onClick={() => {
             if (mapRef.current) {
               mapRef.current.flyTo({
@@ -211,8 +211,8 @@ export default function brownCafe() {
         </Map>
 
         {selectedCafe && (
-          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
-            <div className="flex justify-between items-start mb-2">
+          <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
+            <div className="flex justify-between items-center w-full mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
               <button
                 className="text-gray-500 hover:text-black text-xl"
@@ -245,6 +245,7 @@ export default function brownCafe() {
                   zoom: 17,
                 });
               }
+              setSelectedCafe(cafe);
             }}
             className="bg-[#E6D1B1]/60 rounded-lg shadow p-4 flex flex-col gap-2 transition hover:scale-[1.01]"
           >
