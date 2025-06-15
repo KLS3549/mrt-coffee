@@ -13,6 +13,7 @@ const cafeList = [
     name: "Ruins Coffee Roasters",
     station: "木柵站",
     rating: 4.5,
+    image: "/BR/BR1.jpg"
   },
   {
     longitude: 121.55907357864518,
@@ -20,6 +21,7 @@ const cafeList = [
     name: "E-FUN COFFEE 一方咖啡",
     station: "麟光站",
     rating: 4.7,
+    image: "/BR/BR2.jpg"
   },
   {
     longitude: 121.55040755887308,
@@ -27,6 +29,7 @@ const cafeList = [
     name: "伴鹿咖啡 DeerFriend Café",
     station: "六張犁站",
     rating: 4.8,
+    image: "/BR/BR3.jpg"
   },
   {
     longitude: 121.54994564288644,
@@ -34,6 +37,7 @@ const cafeList = [
     name: "休習日 Z Day Cafe",
     station: "六張犁站",
     rating: 4.7,
+    image: "/BR/BR4.jpg"
   },
   {
     longitude: 121.56909439309285,
@@ -41,6 +45,7 @@ const cafeList = [
     name: "A N G L E",
     station: "科技大樓站",
     rating: 4.5,
+    image: "/BR/BR5.jpg"
   },
   {
     longitude: 121.54736338538761,
@@ -48,6 +53,7 @@ const cafeList = [
     name: "未央咖啡店",
     station: "科技大樓站",
     rating: 4.1,
+    image: "/BR/BR6.jpg"
   },
   {
     longitude: 121.54347082671303,
@@ -55,6 +61,7 @@ const cafeList = [
     name: "草泥cafe",
     station: "忠孝復興站",
     rating: 4.2,
+    image: "/BR/BR7.jpg"
   },
   {
     longitude: 121.54203599738834,
@@ -62,6 +69,7 @@ const cafeList = [
     name: "Le Park Cafe公園咖啡館",
     station: "南京復興站",
     rating: 4.5,
+    image: "/BR/BR8.jpg"
   },
   {
     longitude: 121.54251333273666,
@@ -69,6 +77,7 @@ const cafeList = [
     name: "初心者咖啡店",
     station: "中山國中站",
     rating: 4.7,
+    image: "/BR/BR9.jpg"
   },
   {
     longitude: 121.5465581227559,
@@ -76,6 +85,7 @@ const cafeList = [
     name: "杜鵑窩 CUCKOO's NEST",
     station: "大直站",
     rating: 4.6,
+    image: "/BR/BR10.jpg"
   },
   {
     longitude: 121.55277295369937,
@@ -83,6 +93,7 @@ const cafeList = [
     name: "撒子甜點Isaac dessert",
     station: "劍南路站",
     rating: 4.6,
+    image: "/BR/BR11.jpg"
   },
   {
     longitude: 121.5677975377538,
@@ -90,6 +101,7 @@ const cafeList = [
     name: "湛盧咖啡 西湖館",
     station: "西湖站",
     rating: 4.4,
+    image: "/BR/BR12.jpg"
   },
   {
     longitude: 121.57782098068454,
@@ -97,6 +109,7 @@ const cafeList = [
     name: "The Antipodean Specialty Coffee",
     station: "港墘站",
     rating: 4.3,
+    image: "/BR/BR13.jpg"
   },
   {
     longitude: 121.5919597261553,
@@ -104,6 +117,7 @@ const cafeList = [
     name: "暖窩咖啡 內湖店",
     station: "內湖站",
     rating: 4.6,
+    image: "/BR1.jpg"
   }
   
 ];
@@ -197,7 +211,7 @@ export default function brownCafe() {
         </Map>
 
         {selectedCafe && (
-          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1]/60 rounded-lg shadow-lg w-[300px] p-4">
+          <div className="absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
             <div className="flex justify-between items-start mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
               <button
@@ -207,12 +221,15 @@ export default function brownCafe() {
                 ×
               </button>
             </div>
-            <p className="text-sm text-gray-700 mb-1">
-              <span className="font-semibold">捷運站：</span>{selectedCafe.station}
-            </p>
-            <p className="text-sm text-amber-600 font-semibold">
-              評價：{selectedCafe.rating} ⭐
-            </p>
+            {selectedCafe.image && (
+              <Image
+                src={selectedCafe.image}
+                width={260}
+                height={160}
+                className="rounded-lg mb-2"
+                alt={`${selectedCafe.name} 圖片`}
+              />
+            )}
           </div>
         )}
 
