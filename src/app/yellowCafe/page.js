@@ -5,7 +5,6 @@ import { useRef, useState } from "react";
 import Map, { Marker, useMap } from 'react-map-gl/mapbox';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 const cafeList = [
   {
@@ -166,6 +165,7 @@ const cafeList = [
 export default function yellowCafe() {
 
   const [selectedCafe, setSelectedCafe] = useState(null);
+  const { user } = useAuth();//定義使用者
 
   const router = useRouter();
   const handleEnded = () => {
@@ -255,6 +255,12 @@ export default function yellowCafe() {
           <div className="flex flex-col items-center text-center absolute bottom-10 left-10 z-30 bg-[#E6D1B1] rounded-lg shadow-lg w-[300px] p-4">
             <div className="flex justify-between items-center w-full mb-2">
               <h2 className="text-xl font-bold">{selectedCafe.name}</h2>
+         
+              {user && (
+                <div className="absolute top-2 right-2">
+                  <FavoriteButton cafe={selectedCafe} />
+                </div>
+              )}
               <button
                 className="text-gray-500 hover:text-black text-xl"
                 onClick={() => setSelectedCafe(null)}

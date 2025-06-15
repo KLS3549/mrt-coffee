@@ -1,9 +1,12 @@
 "use client";
 import { useAuth } from "./AuthContext";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+
 
 export default function UserNav() {
   const { user, signIn, logout } = useAuth();
+  const router = useRouter()
 
   if (!user) {
     return (
@@ -22,6 +25,7 @@ export default function UserNav() {
             src={user.photoURL}
             alt={user.displayName}
             className="w-8 h-8 rounded-full object-cover"
+            onClick={() => router.push("/myfav")}
           />
       <span className="text-sm font-medium">{user.displayName}</span>
 
