@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useRouter } from "next/navigation";
+import UserNav from "../auth/UserNav";
 
 export default function MRT() {
 
@@ -23,6 +24,10 @@ export default function MRT() {
             alt="mrt"
           />
         </div>
+
+        <div className="absolute top-6 right-3">
+        <UserNav />
+      </div>
 
         <div className="mt-16 text-3xl font-bold">
           正在搭乘淡水信義線...
